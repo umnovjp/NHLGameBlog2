@@ -11,7 +11,19 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    date: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    score: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    roster: {
       type: DataTypes.STRING,
       allowNull: false,
     },
