@@ -27,6 +27,10 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    goalsSummary: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     description: {
       type: DataTypes.STRING,
     },

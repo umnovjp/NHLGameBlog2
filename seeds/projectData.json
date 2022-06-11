@@ -3,24 +3,27 @@
     "date": "05/03/2022",
     "score": "0:1",
     "name": "Game 1",
+    "goalsSummary": "Goals will live here",
     "roster": "4 Miro, 14 Jamie, 91 Tyler",
-    "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+    "description": "Game 5? (1) 91-14-21 23-2 pass by #14 after scramble near left board to #21; his shot from bottom left circle deflected from D",
     "needed_funding": 5000
   },
   {
     "date": "05/05/2022",
     "score": "2:1",
     "name": "Game 2",
+    "goalsSummary": "Goals will live here",
     "roster": "4 Miro, 14 Jamie, 2 Jani",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
+    "description": "Game 4? (1) 0:1 3X5 11-4 23 shot from blue line not blocked by #4 but that was 3x5",
     "needed_funding": 10000
   },
   {
     "date": "05/07/2022",
-    "score": "1:3",
+    "score": "4:2",
     "name": "Game 3",
+    "goalsSummary": "Goals will live here",
     "roster": "4 Miro, 14 Jamie, 47 Rads",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
+    "description": "(1) 1:0 4x4 12-34 4-23 shot from left blue line by #23 redirected in front of net by #12",
     "needed_funding": 800
   }
 ]
