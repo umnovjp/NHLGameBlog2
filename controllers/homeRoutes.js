@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Project, User } = require('../models');
+const Player = require('../models/Player');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -42,6 +43,28 @@ router.get('/project/:id', async (req, res) => {
 
     res.render('project', {
       ...project,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/player/:id', async (req, res) => {
+  try {
+    const playerData = await Player.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const player = playerData.get({ plain: true });
+
+    res.render('player', {
+      ...player,
       logged_in: req.session.logged_in
     });
   } catch (err) {

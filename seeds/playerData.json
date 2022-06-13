@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "number": 4,
+    "name": "Miro",
+    "goals": 1,
+    "assists": 3
+  },
+  {
+    "id": 2,
+    "number": 14,
+    "name": "Jamie",
+    "goals": 2,
+    "assists": 2
+  },
+  {
+    "id": 3,
+    "number": 91,
+    "name": "Tyler",
+    "goals": 0,
+    "assists": 1
+  }
+]
