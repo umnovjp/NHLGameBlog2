@@ -3,6 +3,27 @@ const { Project, User } = require('../models');
 const Player = require('../models/Player');
 const withAuth = require('../utils/auth');
 
+const players = [
+  {
+    "number": 4,
+    "name": "Miro",
+    "goals": 1,
+    "assists": 3
+  },
+  {
+    "number": 14,
+    "name": "Jamie",
+    "goals": 2,
+    "assists": 2
+  },
+  {
+    "number": 91,
+    "name": "Tyler",
+    "goals": 0,
+    "assists": 1
+  }
+]
+
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -50,27 +71,40 @@ router.get('/project/:id', async (req, res) => {
   }
 });
 
-router.get('/player/:id', async (req, res) => {
-  try {
-    const playerData = await Player.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+// //get one dish
+// router.get('/dish/:num', async (req, res) => {
+//   // This method renders the 'dish' template, and uses params to select the correct dish to render in the template, based on the id of the dish.
+//   return res.render('dish', dishes[req.params.num - 1]);
+// });
 
-    const player = playerData.get({ plain: true });
-
-    res.render('player', {
-      ...player,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get('/player/:num', async (req, res) => {
+ // res.render('login');
+   res.render('player', players[req.params.num-1]);
+  console.log(players);
+  console.log(players[req.params.num-1]);
 });
+
+// router.get('/player/:id', async (req, res) => {
+//   try {
+//     const playerData = await Player.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
+
+//     const player = playerData.get({ plain: true });
+
+//     res.render('player/:number', {
+//       ...player,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -101,5 +135,16 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+//line 27 get '/' project.findAll
+//line 43 res.render('homepage', 
+//line 52 get '/project/:id' 
+//line 65 res.render('project', 
+//line 80 router.get('/player/:num',
+//line 81 res.render('player',
+//line 107 router.get('/profile',
+//line 117 res.render('profile',
+//line 126 router.get('/login', 
+//line 133 res.render('login');
 
 module.exports = router;

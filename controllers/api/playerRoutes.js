@@ -24,7 +24,8 @@ router.delete('/:number', withAuth, async (req, res) => {
       },
     });
 
-    if (!projectData) {
+    if (!playerData) {
+      console.log('u r screwed');
       res.status(404).json({ message: 'No player found with this number!' });
       return;
     }
