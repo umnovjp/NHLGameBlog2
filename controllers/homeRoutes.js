@@ -3,26 +3,26 @@ const { Project, User } = require('../models');
 const Player = require('../models/Player');
 const withAuth = require('../utils/auth');
 
-const players = [
-  {
-    "number": 4,
-    "name": "Miro",
-    "goals": 1,
-    "assists": 3
-  },
-  {
-    "number": 14,
-    "name": "Jamie",
-    "goals": 2,
-    "assists": 2
-  },
-  {
-    "number": 91,
-    "name": "Tyler",
-    "goals": 0,
-    "assists": 1
-  }
-]
+// const players = [
+//   {
+//     "number": 4,
+//     "name": "Miro",
+//     "goals": 1,
+//     "assists": 5
+//   },
+//   {
+//     "number": 14,
+//     "name": "Jamie",
+//     "goals": 2,
+//     "assists": 2
+//   },
+//   {
+//     "number": 91,
+//     "name": "Tyler",
+//     "goals": 0,
+//     "assists": 1
+//   }
+// ]
 
 router.get('/', async (req, res) => {
   try {
@@ -64,9 +64,12 @@ router.get('/project/:id', async (req, res) => {
 
     res.render('project', {
       ...project,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+    
     });
-  } catch (err) {
+  } 
+  
+  catch (err) {
     res.status(500).json(err);
   }
 });
@@ -78,10 +81,11 @@ router.get('/project/:id', async (req, res) => {
 // });
 
 router.get('/player/:num', async (req, res) => {
- // res.render('login');
-   res.render('player', players[req.params.num-1]);
-  console.log(players);
-  console.log(players[req.params.num-1]);
+ try {
+  const playerData = await Player.findByPk(req.params.id);
+  console.log(playerData);
+  res.render('player', playerData)
+ }  catch(err){res.status(500).json(err)}
 });
 
 // router.get('/player/:id', async (req, res) => {
@@ -137,13 +141,13 @@ router.get('/login', (req, res) => {
 });
 
 //line 27 get '/' project.findAll
-//line 43 res.render('homepage', 
+//line 43 res.render('homepage', DB
 //line 52 get '/project/:id' 
-//line 65 res.render('project', 
+//line 65 res.render('project', DB
 //line 80 router.get('/player/:num',
-//line 81 res.render('player',
+//line 81 res.render('player', F
 //line 107 router.get('/profile',
-//line 117 res.render('profile',
+//line 117 res.render('profile', F
 //line 126 router.get('/login', 
 //line 133 res.render('login');
 

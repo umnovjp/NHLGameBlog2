@@ -6,6 +6,12 @@ class Player extends Model {}
 
 Player.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     number: {
       type: DataTypes.INTEGER,
       allowNull: false,

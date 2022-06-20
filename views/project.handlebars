@@ -2,10 +2,10 @@
   <h2>{{name}}</h2>
   <p>{{{get_emoji}}}</p>
   <p>{{description}}</p>
-  <p>{{roster}}</p>
   {{#each players as |player| }}
-  console.log(player.name);
-  <a href="/player/{{player.number}}">{{player.name}}</a>
+  <a href="/player/{{player.number}}">{{player.name}} {{player.number}}
+    </a>
+  <p>G: {{player.goals}} A: {{player.assists}}</p>
   {{/each}}
     {{#each projects as |project| }}
   console.log(project.name);
