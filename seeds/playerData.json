@@ -19,5 +19,12 @@
     "name": "Tyler",
     "goals": 0,
     "assists": 1
+  },
+  {
+    "id": 4,
+    "number": 2,
+    "name": "Jani",
+    "goals": 6,
+    "assists": 7
   }
 ]

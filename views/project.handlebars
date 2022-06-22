@@ -2,16 +2,13 @@
   <h2>{{name}}</h2>
   <p>{{{get_emoji}}}</p>
   <p>{{description}}</p>
-  {{#each players as |player| }}
-  <a href="/player/{{player.number}}">{{player.name}} {{player.number}}
-    </a>
-  <p>G: {{player.goals}} A: {{player.assists}}</p>
-  {{/each}}
+   <p>project start</p>
     {{#each projects as |project| }}
   console.log(project.name);
-  <p>project</p>
   <a href="/project/{{project.id}}">{{project.name}}</a>
   {{/each}}
+   <p>project after</p>
+
   <p>{{goalsSummary}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>

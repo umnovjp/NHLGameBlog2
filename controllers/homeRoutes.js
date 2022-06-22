@@ -3,26 +3,26 @@ const { Project, User } = require('../models');
 const Player = require('../models/Player');
 const withAuth = require('../utils/auth');
 
-// const players = [
-//   {
-//     "number": 4,
-//     "name": "Miro",
-//     "goals": 1,
-//     "assists": 5
-//   },
-//   {
-//     "number": 14,
-//     "name": "Jamie",
-//     "goals": 2,
-//     "assists": 2
-//   },
-//   {
-//     "number": 91,
-//     "name": "Tyler",
-//     "goals": 0,
-//     "assists": 1
-//   }
-// ]
+const players = [
+  {
+    "number": 4,
+    "name": "Miro",
+    "goals": 1,
+    "assists": 5
+  },
+  {
+    "number": 14,
+    "name": "Jamie",
+    "goals": 2,
+    "assists": 2
+  },
+  {
+    "number": 91,
+    "name": "Tyler",
+    "goals": 0,
+    "assists": 1
+  }
+]
 
 router.get('/', async (req, res) => {
   try {
@@ -59,7 +59,8 @@ router.get('/project/:id', async (req, res) => {
         },
       ],
     });
-
+    console.log('in project');
+console.log(projectData);
     const project = projectData.get({ plain: true });
 
     res.render('project', {
@@ -80,10 +81,12 @@ router.get('/project/:id', async (req, res) => {
 //   return res.render('dish', dishes[req.params.num - 1]);
 // });
 
-router.get('/player/:num', async (req, res) => {
+router.get('/player/:id', async (req, res) => {
  try {
   const playerData = await Player.findByPk(req.params.id);
+  console.log('in player');
   console.log(playerData);
+//  const player = playerData.get({ plain: true });
   res.render('player', playerData)
  }  catch(err){res.status(500).json(err)}
 });
