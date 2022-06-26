@@ -3,27 +3,6 @@ const { Project, User } = require('../models');
 const Player = require('../models/Player');
 const withAuth = require('../utils/auth');
 
-const players = [
-  {
-    "number": 4,
-    "name": "Miro",
-    "goals": 1,
-    "assists": 5
-  },
-  {
-    "number": 14,
-    "name": "Jamie",
-    "goals": 2,
-    "assists": 2
-  },
-  {
-    "number": 91,
-    "name": "Tyler",
-    "goals": 0,
-    "assists": 1
-  }
-]
-
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -52,24 +31,23 @@ router.get('/', async (req, res) => {
 router.get('/project/:id', async (req, res) => {
   try {
     const projectData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
     });
     console.log('in project');
-console.log(projectData);
+console.log('ProjectData', projectData, 'END PROJECTDATA');
     const project = projectData.get({ plain: true });
-
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in,
-    
-    });
-  } 
-  
+    console.log('after project', project);
+    res.render('project', project
+    // {
+    //   ...project,
+    //   logged_in: req.session.logged_in}
+      );
+  }   
   catch (err) {
     res.status(500).json(err);
   }
@@ -86,8 +64,11 @@ router.get('/player/:id', async (req, res) => {
   const playerData = await Player.findByPk(req.params.id);
   console.log('in player');
   console.log(playerData);
+  console.log(playerData.name);
+  const player = playerData.get({ plain: true});
+  console.log(player);
 //  const player = playerData.get({ plain: true });
-  res.render('player', playerData)
+  res.render('player', player)
  }  catch(err){res.status(500).json(err)}
 });
 

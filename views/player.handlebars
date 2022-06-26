@@ -2,7 +2,11 @@
   <h2>{{name}}</h2> 
   <h3>{{player.name}}h3</h3> 
   Number: {{number}}
-  {{player.number}}
   G: {{goals}}
   A: {{assists}}
+     {{#each players as |player| }}
+  console.log('PROJECT NAME', project.name);
+  {{player.name}}
+  {{number}}
+  {{/each}}
 </div>
