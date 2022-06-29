@@ -42,11 +42,11 @@ router.get('/project/:id', async (req, res) => {
 console.log('ProjectData', projectData, 'END PROJECTDATA');
     const project = projectData.get({ plain: true });
     console.log('after project', project);
-    res.render('project', project
+    res.render('project', project);
     // {
     //   ...project,
     //   logged_in: req.session.logged_in}
-      );
+     // );
   }   
   catch (err) {
     res.status(500).json(err);
