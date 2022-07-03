@@ -39,7 +39,7 @@ router.get('/project/:id', async (req, res) => {
       // ],
     });
     console.log('in project');
-console.log('ProjectData', projectData, 'END PROJECTDATA');
+    console.log('ProjectData', projectData, 'END PROJECTDATA');
     const project = projectData.get({ plain: true });
     console.log('after project', project);
     res.render('project', project);
@@ -67,7 +67,7 @@ router.get('/player/:id', async (req, res) => {
   console.log(playerData.name);
   const player = playerData.get({ plain: true});
   console.log(player);
-//  const player = playerData.get({ plain: true });
+  //  const player = playerData.get({ plain: true });
   res.render('player', player)
  }  catch(err){res.status(500).json(err)}
 });
@@ -124,15 +124,15 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-//line 27 get '/' project.findAll
-//line 43 res.render('homepage', DB
-//line 52 get '/project/:id' 
-//line 65 res.render('project', DB
-//line 80 router.get('/player/:num',
-//line 81 res.render('player', F
-//line 107 router.get('/profile',
-//line 117 res.render('profile', F
-//line 126 router.get('/login', 
-//line 133 res.render('login');
+//line 6-29 get '/' project.findAll
+//line 22 res.render('homepage', DB
+//line 31-50 get '/project/:id' 
+//line 45 res.render('project', DB
+//line 62-73 router.get('/player/:num',
+//line 71 res.render('player', F
+//line 98-115 router.get('/profile',
+//line 108 res.render('profile', F
+//line 117-125 router.get('/login', 
+//line 124 res.render('login');
 
 module.exports = router;
