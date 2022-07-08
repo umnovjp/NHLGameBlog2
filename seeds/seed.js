@@ -25,7 +25,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  // for (const player of playerData) {
+  // for (const player of playerData) { 
   //   await Player.create({
   //     ...player,
   //     user_id: users[Math.floor(Math.random() * players.length)].id,
