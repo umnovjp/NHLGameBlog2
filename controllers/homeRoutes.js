@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-
+// console.log(projectData);
     // Serialize data so the template can read it
     const projects = projectData.map((project) => project.get({ plain: true }));
 
@@ -134,5 +134,29 @@ router.get('/login', (req, res) => {
 //line 108 res.render('profile', F
 //line 117-125 router.get('/login', 
 //line 124 res.render('login');
+
+router.get('/roster', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const playersData = await Player.findAll({
+      include: [
+        {
+          model: Player,
+          attributes: ['number'],
+        },
+      ],
+    });
+console.log(playersData);
+    // Serialize data so the template can read it
+    const players = playersData.map((player) => player.get({ plain: true }));
+    // Pass serialized data and session flag into template
+    res.render('roster', { 
+      players //, 
+   //   logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
